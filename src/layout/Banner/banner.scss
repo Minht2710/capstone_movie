@@ -1,0 +1,22 @@
+.carousel_banner {
+  .slick-next {
+    right: 30px;
+    color: white;
+    font-size: 16px;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .slick-prev {
+    left: 30px;
+    color: white;
+    font-size: 16px;
+    z-index: 2;
+
+    &::before {
+      display: none;
+    }
+  }
+}
