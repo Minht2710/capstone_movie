@@ -52,6 +52,11 @@ const AdminTemplate = () => {
               icon: <VideoCameraOutlined />,
               label: <NavLink to="/admin/them-phim">Tạo phim</NavLink>,
             },
+            {
+              key: "3",
+              icon: <i class="fa-regular fa-user w-2 mr-2"></i>,
+              label: <NavLink to="/admin/quan-li-nguoi-dung">Quản lý người dùng</NavLink>,
+            },
           ]}
         />
       </Sider>

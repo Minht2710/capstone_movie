@@ -4,7 +4,7 @@ import * as registerAnimation from "./../../assets/animation/register.json";
 import Lottie from "react-lottie";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDung";
 import { NotifyContext } from "../../template/UserTemplate/UserTemplate";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,7 @@ const SignIn = () => {
         matKhau: "",
       },
       onSubmit: async (values) => {
-        console.log(values);
+        // console.log(values);
         // đưa dữ liệu lên backend xử lí và hiển thị thông báo cho người dùng
         try {
           // gửi dữ liệu lên backend
@@ -71,6 +71,7 @@ const SignIn = () => {
               touched={touched.taiKhoan}
               name="taiKhoan"
               value={values.taiKhoan}
+              
             />
             <InputCustom
               placeholder="Vui lòng nhập mật khẩu"
@@ -87,10 +88,12 @@ const SignIn = () => {
             <div>
               <p>
                 Chưa có tài khoản ư? bấm
-                <NavLink to="sign-up" className="mx-1 text-blue-500">
+                {/* nếu     NavLink to="sign-up"    thì bên route: components signUp phải đặt là con của component hiện tại này. tại component này phải thêm <outLet/>  */}
+                <NavLink to="/sign-up" className="mx-1 text-blue-500">
                   vào đây
                 </NavLink>
-                để đăng ký nè
+                để đăng ký.
+                
               </p>
               <button
                 type="submit"

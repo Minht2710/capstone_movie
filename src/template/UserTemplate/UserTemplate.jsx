@@ -8,9 +8,9 @@ import useReponsive from "../../hooks/useReponsive";
 export const NotifyContext = React.createContext(null);
 const UserTemplate = () => {
   const { isMobile, isTablet, isDesktop } = useReponsive();
-  console.log(isMobile);
-  console.log(isTablet);
-  console.log(isDesktop);
+  // console.log(isMobile);
+  // console.log(isTablet);
+  // console.log(isDesktop);
   const { isLoading } = useSelector((state) => state.loadingSlice);
   const [closeTime, setCloseTime] = useState(2000);
   const renderNotify = (notify) => {
