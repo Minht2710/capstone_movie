@@ -5,6 +5,7 @@ import {
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
+  
 } from "@ant-design/icons";
 import { NavLink, Outlet } from "react-router-dom";
 import { Layout, Menu, Button, theme } from "antd";
@@ -54,7 +55,8 @@ const AdminTemplate = () => {
             },
             {
               key: "3",
-              icon: <i class="fa-regular fa-user w-2 mr-2"></i>,
+              // icon: <i class="fa-regular fa-user w-2 mr-2"></i>,
+              icon: <UserOutlined />,
               label: <NavLink to="/admin/quan-li-nguoi-dung">Quản lý người dùng</NavLink>,
             },
           ]}

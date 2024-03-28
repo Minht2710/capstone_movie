@@ -7,5 +7,5 @@ export const quanLyNguoiDungServ = {
   },
   dangky: (data) => { 
     return http.post("/QuanLyNguoiDung/DangKy", data)
-   }
+   },
 };

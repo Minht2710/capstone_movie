@@ -6,13 +6,13 @@ import InputCustom from '../../components/Input/InputCustom';
 import { useFormik } from 'formik';
 import { quanLyNguoiDungServ } from '../../services/quanLyNguoiDung';
 import { NotifyContext } from '../../template/UserTemplate/UserTemplate';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 const SignUp = () => {
-  // let notify=useContext(NotifyContext)
-  // let navigate=useNavigate()
-
+  let notify=useContext(NotifyContext)
+  let navigate=useNavigate()
+  
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -27,15 +27,17 @@ const SignUp = () => {
       ,matKhau:""
       ,email:""
       ,soDt:""
-      ,maNhom:"GP01"
+      // ,maNhom:"GP01" mã nhóm backend tự tạo cho mình nên trong đây khỏi truyền
       ,hoTen:""
     },
     onSubmit: async (values) => { 
+      // console.log(values)
       try {
         let res = await quanLyNguoiDungServ.dangky(values)
-        console.log(res)
+        notify("Đăng ký thành công, khách hàng sẽ được chuyển hướng về trang đăng nhập")
+        setTimeout(() => {navigate("/sign-in")  },2000)
       } catch (error) {
-        console.log(error)
+        notify(error.response.data.content);
       }
 
 
@@ -92,6 +94,7 @@ const SignUp = () => {
                     touched={touched.matKhau}
                     name="matKhau"
                     value={values.matKhau}
+                    // type='password'
                   />
                 </div>
 
@@ -150,7 +153,8 @@ const SignUp = () => {
                 </div>
 
                 <p className="text-sm font-light text-gray-500 ">
-                  Already have an account? <a href="#" className="font-medium text-primary-600 hover:underline ">Login here</a>
+                  {/* Already have an account? <a href="#" className="font-medium text-primary-600 hover:underline ">Login here</a> */}
+                  Already have an account? <NavLink to='/sign-in' className="font-medium text-primary-600 hover:underline ">Login here</NavLink>
                 </p>
               </form>
             </div>

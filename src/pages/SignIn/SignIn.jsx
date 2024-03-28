@@ -8,10 +8,11 @@ import { NavLink, Outlet } from "react-router-dom";
 import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDung";
 import { NotifyContext } from "../../template/UserTemplate/UserTemplate";
 import { useNavigate } from "react-router-dom";
-import { saveLocalStorage } from "../../utils/util";
+import { getLocalStorage, saveLocalStorage } from "../../utils/util";
 const SignIn = () => {
   const notify = useContext(NotifyContext);
   const navigate = useNavigate();
+
   const { handleChange, handleBlur, values, errors, touched, handleSubmit } =
     useFormik({
       initialValues: {
@@ -24,15 +25,17 @@ const SignIn = () => {
         try {
           // gửi dữ liệu lên backend
           const res = await quanLyNguoiDungServ.dangNhap(values);
-          console.log(res);
+          // console.log(res);
           // lưu trữ dữ liệu xuống localstorage để lưu trữ
           saveLocalStorage("user", res.data.content);
-          notify(
-            "Đăng nhập thành công, khách hàng sẽ được chuyển hướng về trang chủ"
-          );
+          const user = getLocalStorage("user");
+          console.log(user)
+          notify("Đăng nhập thành công")
+
           setTimeout(() => {
-            navigate("/");
+            user?.maLoaiNguoiDung == "QuanTri"?navigate("/admin"):navigate("/")
           }, 1000);
+          // console.log(user)
         } catch (error) {
           console.log(error);
           notify(error.response.data.content);
@@ -89,9 +92,11 @@ const SignIn = () => {
               <p>
                 Chưa có tài khoản ư? bấm
                 {/* nếu     NavLink to="sign-up"    thì bên route: components signUp phải đặt là con của component hiện tại này. tại component này phải thêm <outLet/>  */}
+               
                 <NavLink to="/sign-up" className="mx-1 text-blue-500">
                   vào đây
                 </NavLink>
+                
                 để đăng ký.
                 
               </p>
