@@ -30,6 +30,8 @@ const phimSlice = createSlice({
     builder.addCase(getAllMovieThunk.fulfilled, (state, action) => {
       console.log(action);
       state.arrMovie = action.payload;
+    
+      
     });
   },
 });
