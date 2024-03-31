@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './UsManager.scss'
 import InputCustom from '../../components/Input/InputCustom'
 import { Button, Table } from 'antd';
@@ -8,9 +8,9 @@ import { quanLyPhimServ } from '../../services/quanLyPhim';
 import { getAllUserThunk } from '../../redux/slice/userSlice';
 
 const UsManager = () => {
-  
 
- 
+
+
   // chạy api bên redux toolkit
   let dispatch = useDispatch()
   useEffect(() => {
@@ -21,7 +21,7 @@ const UsManager = () => {
 
   // lấy dữ liệu từ api thông qua redux toolkit
   let { arrUser } = useSelector((state) => state.userSlice)
-  console.log(arrUser)
+  // console.log(arrUser)
 
 
 
@@ -57,17 +57,43 @@ const UsManager = () => {
       dataIndex: 'thaoTac',
     },
   ];
-  let newArrUser=  []
-  arrUser.map((item,index) => {
-    let a={...item}
-    a.key=index+1
+  let newArrUser = []
+  arrUser.map((item, index) => {
+    let a = { ...item }
+    a.key = index + 1
     newArrUser.push(a)
     // return{...item, key:index+1}
-        
+
   }
   )
-  const data = newArrUser;
- 
+  let data = newArrUser;
+  // useEffect(data=newArrUser,[newArrUserState])
+
+  // tìm user, k tim thay thi thong bao
+
+  let [nameInput, setNameInpput] = useState()
+  let handelonchange = (e) => {
+    setNameInpput(e.target.value)
+  }
+  let [user,setUser]=useState()
+  let userTam=[]
+  let handleFindUser = () => {
+    let index = newArrUser.findIndex((item) => {
+      return item.taiKhoan == nameInput
+    }
+    );
+    if(index==-1){
+      document.querySelector(".notify_find_user").style.display="block"
+      setUser(false)
+    }else{
+      
+      userTam.push(newArrUser[index])
+      setUser(userTam)
+      document.querySelector(".notify_find_user").style.display="none"
+    }
+  }
+
+
 
 
   return (
@@ -75,15 +101,16 @@ const UsManager = () => {
       <button className='add_user py-2 px-5 rounded bg-blue-600 text-white hover:bg-blue-700'>Thêm người dùng</button>
       <div className='flex items-center  space-x-2'>
         <div className='w-11/12'>
-          <InputCustom className='mt-0 mb-2 ' />
-
+          <InputCustom className='mt-0 mb-2 ' onChange={handelonchange} placeholder={"Nhập tên tài khoản"} />
         </div>
 
-        <button className='add_user  px-5 rounded bg-blue-600 text-white hover:bg-blue-700  h-10 ' >Tìm</button>
+        <button className='add_user  px-5 rounded bg-blue-600 text-white hover:bg-blue-700  h-10 ' onClick={handleFindUser}>Tìm</button>
       </div>
+      <p className='text-red-600 hidden notify_find_user'>Không có tài khoản này </p>
+
 
       {/* ant layout table */}
-      <Table columns={columns} dataSource={data} />
+      <Table columns={columns} dataSource={user?user:data} />
 
 
 
