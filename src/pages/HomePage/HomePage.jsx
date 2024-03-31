@@ -20,6 +20,7 @@ const HomePage = () => {
       </button> */}
       {/* banner  */}
       <Banner />
+      
       {/* list movie  */}
       <div className="container">
         <ListMovie />

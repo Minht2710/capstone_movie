@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import phimSlice from "./slice/phimSlice";
 import loadingSlice from "./slice/loadingSlice";
+import userSlice from "./slice/userSlice";
 
 export const store = configureStore({
   reducer: {
@@ -9,6 +10,8 @@ export const store = configureStore({
     // },
     phimSlice,
     loadingSlice,
+    userSlice,
+    
     // huhuSlice
   },
 });

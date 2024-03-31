@@ -6,6 +6,7 @@ const ListMovie = () => {
   // const [arrMovie, setArrMovie] = useState([]);
   // có thể coi tham số state đại diện cho object reducer có ở store
   const { arrMovie } = useSelector((state) => state.phimSlice);
+  // console.log(arrMovie)
   const dispatch = useDispatch();
   // console.log(arrMovie);
   // console.log(phimSlice);

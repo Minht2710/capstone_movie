@@ -7,5 +7,9 @@ export const quanLyNguoiDungServ = {
   },
   dangky: (data) => { 
     return http.post("/QuanLyNguoiDung/DangKy", data)
-   }
+   },
+  getUser: () => {
+    return http.get("/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01")
+  }
+  
 };

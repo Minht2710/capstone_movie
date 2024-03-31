@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { getLocalStorage } from "../../utils/util";
 const Header = () => {
   const userLocal = getLocalStorage("user");
-  console.log(userLocal);
+  // console.log(userLocal);
   return (
     <header>
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 ">
