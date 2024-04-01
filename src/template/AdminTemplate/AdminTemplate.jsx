@@ -5,13 +5,18 @@ import {
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  
+
 } from "@ant-design/icons";
 import { NavLink, Outlet } from "react-router-dom";
 import { Layout, Menu, Button, theme } from "antd";
 import { useEffect } from "react";
 import { getLocalStorage } from "../../utils/util";
+import { toast } from "react-toastify";
 const { Header, Sider, Content } = Layout;
+
+
+
+export const NotifyContext = React.createContext(null);
 
 const AdminTemplate = () => {
   useEffect(() => {
@@ -32,62 +37,74 @@ const AdminTemplate = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  // thông báo
+  const renderNotify = (notify) => {
+    return toast(notify);
+  };
+
+
   // Quản lí người dùng, quản lí phim, quản lí lịch chiếu
 
   return (
-    <Layout className="min-h-screen">
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <VideoCameraOutlined />,
-              label: <NavLink to="/admin/quan-li-phim">Quản lí phim</NavLink>,
-            },
-            {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: <NavLink to="/admin/them-phim">Tạo phim</NavLink>,
-            },
-            {
-              key: "3",
-              // icon: <i class="fa-regular fa-user w-2 mr-2"></i>,
-              icon: <UserOutlined />,
-              label: <NavLink to="/admin/quan-li-nguoi-dung">Quản lý người dùng</NavLink>,
-            },
-          ]}
-        />
-      </Sider>
-      <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
-            }}
+    <NotifyContext.Provider value={renderNotify}>
+      <Layout className="min-h-screen">
+        <Sider trigger={null} collapsible collapsed={collapsed}>
+          <div className="demo-logo-vertical" />
+          <Menu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={["1"]}
+            items={[
+              {
+                key: "1",
+                icon: <VideoCameraOutlined />,
+                label: <NavLink to="/admin/quan-li-phim">Quản lí phim</NavLink>,
+              },
+              {
+                key: "2",
+                icon: <VideoCameraOutlined />,
+                label: <NavLink to="/admin/them-phim">Tạo phim</NavLink>,
+              },
+              {
+                key: "3",
+                // icon: <i class="fa-regular fa-user w-2 mr-2"></i>,
+                icon: <UserOutlined />,
+                label: <NavLink to="/admin/quan-li-nguoi-dung">Quản lý người dùng</NavLink>,
+              },
+            ]}
           />
-        </Header>
-        <Content
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-            background: colorBgContainer,
-            borderRadius: borderRadiusLG,
-          }}
-        >
-          <Outlet />
-        </Content>
+        </Sider>
+        <Layout>
+          <Header style={{ padding: 0, background: colorBgContainer }}>
+            <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+              style={{
+                fontSize: "16px",
+                width: 64,
+                height: 64,
+              }}
+            />
+          </Header>
+          <Content
+            style={{
+              margin: "24px 16px",
+              padding: 24,
+              minHeight: 280,
+              background: colorBgContainer,
+              borderRadius: borderRadiusLG,
+            }}
+          >
+            <Outlet />
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
+
+    </NotifyContext.Provider>
+
+
+
   );
 };
 

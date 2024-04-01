@@ -10,6 +10,11 @@ export const quanLyNguoiDungServ = {
    },
   getUser: () => {
     return http.get("/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01")
+  },
+  addUser: (data) => {
+    return http.post("/QuanLyNguoiDung/ThemNguoiDung",data)
+    
   }
+  
   
 };

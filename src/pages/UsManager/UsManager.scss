@@ -1,12 +1,19 @@
-.edit_user{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    display: none;
+.usManager{
+    position: relative;
+    .popup_add_user{
+        position: absolute;
+        top: 45px;
+        left: 0;
+        height: 92%;
+        width: 100%;
+        display: none;
+        background-color: white;
+    }
     
 }
 
-.add_user{
-    
-}
+
+
+
+
+
