@@ -44,7 +44,6 @@ const SignUp = () => {
      },
      validationSchema: yup.object({
       taiKhoan:yup.string().required("Vui lòng không bỏ trống")
-   
       ,matKhau:yup.string().matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/, "Mật khẩu có ít nhất 8 ký tự và Bao gồm: chữ hoa, chữ thường, số")
       ,email:yup.string().email("Vui lòng kiểm tra định dạng email").required("Vui lòng không bỏ trống")
       ,soDt:yup.string().matches(/^(0[2|3|4|5|6|7|8|9]{1})([0-9]{8,9})$/,"Vui lòng nhập đúng số điện thoại")
