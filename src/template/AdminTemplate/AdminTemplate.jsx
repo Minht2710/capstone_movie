@@ -11,7 +11,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { Layout, Menu, Button, theme } from "antd";
 import { useEffect } from "react";
 import { getLocalStorage } from "../../utils/util";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 const { Header, Sider, Content } = Layout;
 
 
@@ -100,7 +100,7 @@ const AdminTemplate = () => {
           </Content>
         </Layout>
       </Layout>
-
+      <ToastContainer autoClose={2000} theme="dark" />
     </NotifyContext.Provider>
 
 
