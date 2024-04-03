@@ -9,6 +9,7 @@ import AddMovie from "../pages/AddMovie/AddMovie";
 import SignUp from "../pages/SignUp/SignUp";
 import UsManager from '../pages/UsManager/UsManager'
 import Nhap from "../pages/Nhap/Nhap";
+import FormUpdateUs  from "../pages/UsManager/FormUpdateUs";
 
 const useRoutesCustom = () => {
   const routes = useRoutes([
@@ -50,7 +51,7 @@ const useRoutesCustom = () => {
         },
         {
           path: "quan-li-nguoi-dung",
-          element: <UsManager/>
+          element: <UsManager/>,
         },
         {
           path: "nhap",
