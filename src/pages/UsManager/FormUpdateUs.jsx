@@ -12,8 +12,6 @@ const FormUpdateUs = ({ userEdit }) => {
     let userLocal = getLocalStorage("user")
     let tokenUser = userLocal.accessToken
     let notify = useContext(NotifyContext)
-
-
     let { handleSubmit, handleChange, setFieldValue, values, errors, handleBlur, touched } = useFormik(
         {
             initialValues: {
@@ -36,13 +34,10 @@ const FormUpdateUs = ({ userEdit }) => {
                     }
                 })
                     .then((res) => {
-                        console.log(res.data)
                         notify("sửa thành công")
                     })
                     .catch((err) => {
-                        console.log(err.response.data.content)
-                        // notify(err.response.data.content)
-
+                        notify(err.response.data.content)
                     });
             },
             validationSchema: Yup.object({
@@ -62,15 +57,12 @@ const FormUpdateUs = ({ userEdit }) => {
         setFieldValue("soDt", userEdit.soDt);
         setFieldValue("maLoaiNguoiDung", userEdit.maLoaiNguoiDung);
         setFieldValue("hoTen", userEdit.hoTen);
-
-
-        // Cập nhật các trường khác tương tự nếu cần
-    }, [userEdit, setFieldValue]);
+    }, [userEdit]);
 
     let handleBack = () => {
         document.querySelector(".popup_add_user2").style.display = "none"
       }
-
+      
     return (
     <div className='popup_add_user2 '>
 

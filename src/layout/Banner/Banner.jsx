@@ -38,7 +38,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="carousel_banner">
+    <div className="carousel_banner mb-6">
       <Carousel
         nextArrow={<div>Hello</div>}
         prevArrow={<div>Bye</div>}
