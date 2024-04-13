@@ -25,7 +25,7 @@ const ListMovie = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-5 gap-10">
+    <div className=" grid grid-cols-5 gap-10 ">
       {arrMovie.map((movie, index) => {
         return (
           <div className="movie_item space-y-4">
