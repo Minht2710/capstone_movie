@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Nhap = () => {
-  const obj = {
-    name: "John Doe",
-    age: 30,
-  };
-    // Đổi tên key "name" thành "fullName"
-  for (const i in obj) {
-    if (i === "name") {
-      obj["fullName"] = "nguyencongminh";
-      delete obj[i];
-    }
-  }
-  console.log(obj);
+  let a = new FormData()
+  a.append("tuoi", 33)
+  useEffect(() => {
+    console.log(a)
+
+
+  }, [a]
+  )
+
+
 
   return (
     <div>
-      <button >cap nhat</button>
+      <input type="file" onChange={(e) => {
+        
+        
+      }
+      }/> nhap
     </div>
   )
 }
+
 export default Nhap

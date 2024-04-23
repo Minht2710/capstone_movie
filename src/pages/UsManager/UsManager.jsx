@@ -198,6 +198,7 @@ const UsManager = () => {
     if (index !== -1) {
       userEditTam = { ...arrUser[index] }
     } else { console.log("tài khoản không trùng") }
+    
     for (let i in userEditTam) {
       if (i === "soDT") {
         userEditTam["soDt"] = userEditTam[i]
