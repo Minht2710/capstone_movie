@@ -5,18 +5,19 @@ import { handleTurnOffLoading, handleTurnOnLoading } from "./loadingSlice";
 
 const initialState = {
   arrMovie: [],
+  arrBanner: [],
 };
+//
 
+// movielist
 export const getAllMovieThunk = createAsyncThunk(
   "quanLyPhim/getAllMovieThunk",
   async (dataLocal, { _, dispatch }) => {
-    dispatch(handleTurnOnLoading());
     const res = await quanLyPhimServ.getAllMovie();
-    dispatch(handleTurnOffLoading());
-    // res.data.content
     return res.data.content;
   }
 );
+
 
 const phimSlice = createSlice({
   name: "quanLyPhim",
@@ -28,10 +29,7 @@ const phimSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getAllMovieThunk.fulfilled, (state, action) => {
-      console.log(action);
       state.arrMovie = action.payload;
-    
-      
     });
   },
 });

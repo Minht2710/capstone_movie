@@ -4,11 +4,13 @@ import * as registerAnimation from "./../../assets/animation/register.json";
 import Lottie from "react-lottie";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { quanLyNguoiDungServ } from "../../services/quanLyNguoiDung";
 import { NotifyContext } from "../../template/UserTemplate/UserTemplate";
 import { useNavigate } from "react-router-dom";
 import { getLocalStorage, saveLocalStorage } from "../../utils/util";
+import Cookies from "js-cookie";
+
 const SignIn = () => {
   const notify = useContext(NotifyContext);
   const navigate = useNavigate();
@@ -25,15 +27,16 @@ const SignIn = () => {
         try {
           // gửi dữ liệu lên backend
           const res = await quanLyNguoiDungServ.dangNhap(values);
-          // console.log(res);
-          // lưu trữ dữ liệu xuống localstorage để lưu trữ
+         
           saveLocalStorage("user", res.data.content);
           const user = getLocalStorage("user");
-          console.log(user)
-          notify("Đăng nhập thành công")
+          // console.log(user);
+          notify("Đăng nhập thành công");
 
           setTimeout(() => {
-            user?.maLoaiNguoiDung == "QuanTri"?navigate("/admin"):navigate("/")
+            user?.maLoaiNguoiDung == "QuanTri"
+              ? navigate("/admin")
+              : navigate("/");
           }, 1000);
           // console.log(user)
         } catch (error) {
@@ -74,7 +77,6 @@ const SignIn = () => {
               touched={touched.taiKhoan}
               name="taiKhoan"
               value={values.taiKhoan}
-              
             />
             <InputCustom
               placeholder="Vui lòng nhập mật khẩu"
@@ -92,14 +94,12 @@ const SignIn = () => {
               <p>
                 Chưa có tài khoản ư? bấm
                 {/* nếu     NavLink to="sign-up"    thì bên route: components signUp phải đặt là con của component hiện tại này. tại component này phải thêm <outLet/>  */}
-               
                 <NavLink to="/sign-up" className="mx-1 text-blue-500">
                   vào đây
                 </NavLink>
-                
                 để đăng ký.
-                
               </p>
+
               <button
                 type="submit"
                 className="py-2 px-5 bg-black text-white rounded-md w-full mt-2"

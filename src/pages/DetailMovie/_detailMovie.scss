@@ -1,0 +1,23 @@
+@import "./../../sass/mixin/responsive";
+
+.BannerDetailMovie {
+  height: 500px;
+  @include breakpoint(md) {
+    height: 400px;
+  }
+  @include breakpoint(sm) {
+    height: 300px;
+  }
+  @include breakpoint(xs) {
+    height: 200px;
+  }
+}
+.contentChiTiet {
+  display: flex;
+  flex-direction: row;
+  // laptop
+  @include breakpoint(lg, md, sm, xs) {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,72 @@
+@import "./../../sass/mixin/responsive";
+
+.muaVe {
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #e48c04;
+  font-weight: 700;
+  color: white;
+  transition: all 0.5s;
+  &:hover {
+    background-color: #efda20;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  }
+}
+
+.thong-tin-ve {
+  border-radius: 20px;
+  padding: 20px;
+  border: dotted 2px white;
+  @include breakpoint(lg, md, sm, xs) {
+    margin-top: 40px;
+  }
+  .thong-tin-ve-user {
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+}
+
+.titleInfoCart {
+  font-size: 24px;
+  font-weight: 700;
+  @include breakpoint(lg, md, sm, xs) {
+    color: white;
+  }
+}
+.tenDong {
+  @include breakpoint(lg, md, sm, xs) {
+    font-weight: 500;
+    color: white;
+  }
+}
+.noiDungDong {
+  @include breakpoint(lg, md, sm, xs) {
+    // font-weight: 500;
+    color: white;
+  }
+}
+
+.btnConfirm {
+  border-radius: 15px;
+  margin: 0 10px;
+  background-color: aliceblue;
+  font-weight: 700;
+  transition: all 0.5s;
+  &:hover {
+    background-color: rgb(255, 32, 32);
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+  &:last-child {
+    background-color: #efda20;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+        rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+  }
+}
+.titleModal {
+}

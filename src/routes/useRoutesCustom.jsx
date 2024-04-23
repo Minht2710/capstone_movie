@@ -7,9 +7,11 @@ import AdminTemplate from "../template/AdminTemplate/AdminTemplate";
 import MovieManager from "../pages/MovieManager/MovieManager";
 import AddMovie from "../pages/AddMovie/AddMovie";
 import SignUp from "../pages/SignUp/SignUp";
-import UsManager from '../pages/UsManager/UsManager'
+import UsManager from "../pages/UsManager/UsManager";
 import Nhap from "../pages/Nhap/Nhap";
-import FormUpdateUs  from "../pages/UsManager/FormUpdateUs";
+import FormUpdateUs from "../pages/UsManager/FormUpdateUs";
+import DetailMovie from "../pages/DetailMovie/DetailMovie";
+import BuyTicket from "../pages/Buyticket/BuyTicket";
 
 const useRoutesCustom = () => {
   const routes = useRoutes([
@@ -24,12 +26,27 @@ const useRoutesCustom = () => {
         {
           path: "sign-in",
           element: <SignIn />,
-         
         },
         {
-          path:"sign-up",
-          element:<SignUp/>
-        }
+          path: "sign-up",
+          element: <SignUp />,
+        },
+        {
+          path: "/detail",
+          element: <DetailMovie />,
+        },
+        {
+          path: "/detail/:maPhim",
+          element: <DetailMovie />,
+        },
+        {
+          path: "/buy-ticket",
+          element: <BuyTicket />,
+        },
+        {
+          path: "/buy-ticket/:maLichChieu",
+          element: <BuyTicket />,
+        },
       ],
     },
     {
@@ -51,11 +68,11 @@ const useRoutesCustom = () => {
         },
         {
           path: "quan-li-nguoi-dung",
-          element: <UsManager/>,
+          element: <UsManager />,
         },
         {
           path: "nhap",
-          element: <Nhap/>
+          element: <Nhap />,
         },
       ],
     },

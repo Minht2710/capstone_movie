@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import { useSelector } from "react-redux";
 import useReponsive from "../../hooks/useReponsive";
+
 export const NotifyContext = React.createContext(null);
 const UserTemplate = () => {
   const { isMobile, isTablet, isDesktop } = useReponsive();
@@ -16,23 +17,18 @@ const UserTemplate = () => {
   const renderNotify = (notify) => {
     return toast(notify);
   };
-  const handleCloseTime = (time) => {
-    setCloseTime(time);
-  };
-  return isDesktop ? (
+  // const handleCloseTime = (time) => {
+  //   setCloseTime(time);
+  // };
+  return (
     <NotifyContext.Provider
-      // value={{
-      //   renderNotify,
-      //   handleCloseTime,
-      // }}
+
       value={renderNotify}
     >
       {isLoading ? <Loading /> : null}
       <Outlet />
       <ToastContainer autoClose={closeTime} theme="dark" />
     </NotifyContext.Provider>
-  ) : (
-    <div>Tôi đang ở tablet</div>
   );
 };
 

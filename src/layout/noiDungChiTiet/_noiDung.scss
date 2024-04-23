@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Jersey+20&family=Protest+Revolution&display=swap");
+@import "./../../sass/mixin/responsive";
+
+.noi-dung-chi-tiet {
+  width: 60%;
+  @include breakpoint(lg, md, sm, xs) {
+    padding: 0;
+    margin: auto;
+    width: 100%;
+  }
+}
+
+.tieuDePhim {
+  font: 400 50px "Protest Revolution", sans-serif;
+}
+
+.hinhAnhPhim {
+  width: 400px;
+  height: 420px;
+  @include breakpoint(xs, sm) {
+    margin: 0;
+  }
+}
+
+.tenPhimChiTiet {
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.movieContent {
+  margin-top: 10px;
+  span {
+    font: 700 16px;
+  }
+  p {
+    font: 20px;
+    margin-left: 5px;
+    display: inline;
+  }
+}
+
+.ant-anchor-fixed {
+  background: none;
+  &::before {
+    display: none;
+  }
+}
+
+.ant-anchor .ant-anchor-link {
+  padding: 0;
+}
+
+.trailerYoutube {
+  overflow: hidden;
+  border-radius: 20px;
+  height: 420px;
+  @include breakpoint(lg) {
+    width: 100%;
+    height: 480px;
+  }
+  @include breakpoint(md) {
+    height: 400px;
+  }
+  @include breakpoint(sm){
+    height: 320px;
+  }
+  @include breakpoint(xs){
+    height: 270px;
+  }
+}
+
+.noi-dung {
+  display: flex;
+  @include breakpoint(md, sm, xs) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hinhAnhPhim {
+    @include breakpoint(md, sm, xs) {
+      width: 80%;
+    }
+  }
+
+  .chi-tiet {
+    @include breakpoint(md, sm, xs) {
+      margin-top: 20px;
+      width: 100%;
+    }
+    .tenPhimChiTiet {
+      @include breakpoint(md, sm, xs) {
+        font-size: 24px;
+      }
+    }
+    .movieContent {
+      span {
+        @include breakpoint(md, sm, xs) {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

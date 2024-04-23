@@ -1,16 +1,87 @@
+@import "./../../sass/mixin/responsive";
+
 .tab_cum_rap {
   &.ant-tabs {
     .ant-tabs-nav {
       .ant-tabs-nav-list {
+        width: 300px;
+        // margin: 0 10px;
+        @include breakpoint(xs) {
+          width: 100px;
+        }
         .ant-tabs-tab {
           padding: 0;
           padding-right: 24px;
+          .label_cumrap {
+            // width: 300px;
+            @include breakpoint(xs) {
+              width: 100px;
+              animation: moveX infinite 15s;
+            }
+          }
+        }
+      }
+    }
+    .ant-tabs-content-holder {
+      .ant-tabs-content {
+        .ant-tabs-tabpane {
+          padding-left: 5px;
+          .phimDangChieu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            &::-webkit-scrollbar {
+              width: 5px;
+              border-radius: 5px;
+              background: cyan;
+            }
+            &::-webkit-scrollbar-thumb {
+              background-color: rgba(255, 227, 71, 0.842);
+            }
+            .tabPhim {
+              @include breakpoint(xs) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+              }
+              @include breakpoint(sm) {
+                display: flex;
+                flex-direction: column;
+              }
+              .titlePhim {
+                .namePhim {
+                  .c18Content {
+                    @include breakpoint(sm) {
+                      // overflow-x: scroll;
+                      font-size: 20px;
+                    }
+                    @include breakpoint(xs) {
+                      // overflow-x: scroll;
+                      font-size: 14px;
+                    }
+                  }
+                  .titleContent {
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
   }
+}
 
-  .label_cumrap {
-    width: 300px;
+@keyframes moveX {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }

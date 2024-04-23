@@ -4,4 +4,9 @@ export const quanLyRapServ = {
   getAllThongTinCumRap() {
     return http.get("/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01");
   },
+  getLichChieu(maLichChieu) {
+    return http.get(
+      `/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`
+    );
+  },
 };

@@ -3,7 +3,8 @@ import Header from "../../layout/Header/Header";
 import Banner from "../../layout/Banner/Banner";
 import ListMovie from "../../layout/ListMovie/ListMovie";
 import LichChieuCumRap from "../../layout/LichChieuCumRap/LichChieuCumRap";
-import { NotifyContext } from "../../template/UserTemplate/UserTemplate";
+// import { NotifyContext } from "../../template/UserTemplate/UserTemplate";
+import Footer from "../../layout/Footer/Footer";
 
 const HomePage = () => {
   // const notify = useContext(NotifyContext);
@@ -20,13 +21,13 @@ const HomePage = () => {
       </button> */}
       {/* banner  */}
       <Banner />
-      
+
       {/* list movie  */}
-      <div className="container">
-        <ListMovie />
-        <LichChieuCumRap />
-      </div>
+
+      <ListMovie />
+      <LichChieuCumRap />
       {/* footer  */}
+      <Footer />
     </div>
   );
 };

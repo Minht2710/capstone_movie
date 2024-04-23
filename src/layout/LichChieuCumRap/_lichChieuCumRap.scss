@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Jersey+20&family=Protest+Revolution&display=swap");
+@import "./../../sass/mixin/responsive";
+
+.listTheaterSchedule {
+  background: linear-gradient(
+    355deg,
+    rgba(105, 212, 198, 1) 5%,
+    rgba(220, 138, 13, 1) 58%,
+    rgba(227, 133, 1, 1) 100%
+  );
+  .listTheaterScheduleContent {
+    font-family: "Bungee Shade", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-text-stroke: 2px white;
+  }
+  .tabContentSchedule {
+    .tabContentTheater {
+        @include breakpoint(xs){
+            padding: 5px;
+        }
+      .ant-tabs {
+        .ant-tabs-nav {
+          .ant-tabs-nav-wrap {
+            .ant-tabs-nav-list {
+              margin: auto;
+              .ant-tabs-tab{
+                width: 50px;
+                
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

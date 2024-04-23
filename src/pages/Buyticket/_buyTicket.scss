@@ -1,0 +1,50 @@
+@import "./../../sass/mixin/responsive";
+
+.thongTinChiTietGhe {
+  padding: 20px 0 40px 0;
+  background: linear-gradient(
+    193deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(226, 134, 4, 1) 50%,
+    rgba(226, 78, 4, 1) 100%
+  );
+}
+
+.dat-cho-title {
+  margin-bottom: 30px;
+}
+// thông tin vé
+.dat-cho-content {
+  @include breakpoint(lg, md, sm, xs) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .rapChieu {
+    margin-right: 20px;
+    @include breakpoint(sm, xs) {
+      width: 350px;
+      height: 500px;
+      overflow: scroll;
+    }
+    .rap-chieu {
+      margin-top: 20px;
+      @include breakpoint(lg) {
+        margin-right: 20px;
+      }
+      @include breakpoint(sm, xs) {
+        margin-top: 20px;
+        width: 650px;
+        transform-origin: top;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+      .man-hinh-rap-chieu {
+        height: 20px;
+      }
+    }
+  }
+}
+
+// .text
