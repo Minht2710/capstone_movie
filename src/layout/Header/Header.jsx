@@ -142,7 +142,7 @@ export default function Header() {
                     </Button>
                   ) : (
                     <NavLink
-                      to="//sign-in"
+                      to="/sign-in"
                       className="text-sm font-semibold leading-6 text-gray-900"
                     >
                       Đăng Nhập
@@ -154,6 +154,8 @@ export default function Header() {
           </Dialog.Panel>
         </Dialog>
       </header>
+
+      {/* thông tin cá nhân */}
       <Drawer
         // title="Thoong"
         zIndex={1300}

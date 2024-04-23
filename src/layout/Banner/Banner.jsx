@@ -64,7 +64,7 @@ const Banner = () => {
         <Carousel autoplaySpeed={15000} ref={carouselRef}>
           {banner.map((item) => {
             return (
-              <div className="block bgbanner" key={item.maPhim}>
+              <div className="bgbanner block" key={item.maPhim}>
                 <img
                   src={item.hinhAnh}
                   alt=""
