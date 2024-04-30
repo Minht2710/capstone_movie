@@ -34,7 +34,7 @@ const SignIn = () => {
           notify("Đăng nhập thành công");
 
           setTimeout(() => {
-            user?.maLoaiNguoiDung == "QuanTri"
+            user?.maLoaiNguoiDung === "QuanTri"
               ? navigate("/admin")
               : navigate("/");
           }, 1000);
