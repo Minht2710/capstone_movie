@@ -1,4 +1,5 @@
 @import "./../../sass/mixin/responsive";
+
 .crsWrap {
   position: relative;
   overflow: hidden;
@@ -19,52 +20,53 @@
           height: 100%;
         }
         .slick-slide {
+          // width: 100%;
+          // height: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
-          @include breakpoint(xl) {
-            width: 100%;
-            height: 100%;
-          }
-          div {
-            .bgbanner {
-              width: 100%;
-              height: 100%;
-              border-radius: 5px;
-              overflow: hidden;
-              position: relative;
-              @include breakpoint(xl) {
-                // width: 100%;
-                height: 900px;
-              }
-              @include breakpoint(lg) {
-                height: 600px;
-              }
-              @include breakpoint(md) {
-                height: 500px;
-              }
-              @include breakpoint(sm) {
-                height: 300px;
-              }
-              @include breakpoint(xs) {
-                height: 200px;
-              }
-              img {
-                object-fit: cover;
-                animation: animationScale 30s infinite;
-                object-position: center;
-              }
-              .overlay {
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 350px;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.527);
-              }
-            }
-          }
+          // @include breakpoint(xl) {
+          //   width: 100%;
+          //   height: 100%;
+          // }
         }
+      }
+    }
+    .bgbanner {
+      border-radius: 5px;
+      overflow: hidden;
+      position: relative;
+      @include breakpoint(xxl) {
+        height: 1200px;
+      }
+      @include breakpoint(xl) {
+        width: 100%;
+        height: 900px;
+      }
+      @include breakpoint(lg) {
+        height: 900px;
+      }
+      @include breakpoint(md) {
+        height: 500px;
+      }
+      @include breakpoint(sm) {
+        height: 300px;
+      }
+      @include breakpoint(xs) {
+        height: 200px;
+      }
+      img {
+        object-fit: cover;
+        animation: animationScale 30s infinite;
+        object-position: center;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 350px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.527);
       }
     }
     // dot carousel

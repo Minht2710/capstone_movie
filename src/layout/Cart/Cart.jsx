@@ -8,7 +8,7 @@ import {
 } from "../../redux/slice/loadingSlice";
 import ThanhToan from "../../components/thanhToan/ThanhToan";
 import "./_cart.scss";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { ConfigProvider, Modal } from "antd";
 import { quanLyDatChoSerV } from "../../services/quanLyDatCho";
 import { getLocalStorage } from "../../utils/util";

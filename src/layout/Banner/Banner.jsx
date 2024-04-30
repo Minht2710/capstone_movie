@@ -61,6 +61,7 @@ const Banner = () => {
             <i className="fa-solid fa-caret-left"></i>
           </button>
         </div>
+        
         <Carousel autoplaySpeed={15000} ref={carouselRef}>
           {banner.map((item) => {
             return (
